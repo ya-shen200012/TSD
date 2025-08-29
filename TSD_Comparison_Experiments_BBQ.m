@@ -1,6 +1,6 @@
 clear
 ITER=10;
-kappa = 1e2;
+kappa = 1e4;
 tola=[1e-6 1e-9 1e-12];
 n = 1e4;
 Maxiter = 5e4;
@@ -526,3 +526,4 @@ end
 [s1.gnorm(1,j), s2.gnorm(1,j)]=max(s.gnorm(1:54,ITER+1));
 [s1.time2(1,j), s2.time2(1,j)]=min(s.time2(1:54,ITER+1));
 end
+
