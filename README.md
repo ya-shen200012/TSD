@@ -1,10 +1,18 @@
 # TSD
 For repeating numerical experiments in the paper titled  "Triangle Steepest Descent: A Geometry-Driven Gradient Method Variation with R-Linear Convergence"
 
-After running the "TSD_20250819.jl" file, you will get a csv file "combined_results_20250819.csv" and a log file "error_log_20250819.txt". "combined_results_20250819.csv" contains the raw data for table A.6-A.10 in the paper.
+After running the "TSD_Comparison_Experiments.m" file, the variable "s1" contains the raw data for tables corresponding to TSD in subsection 4.1 and subsection 4.2 in the paper.
+
+After running the "TSD_Comparison_Experiments_BBQ.m" file, the variable "s1" contains the raw data for tables corresponding to BBQ in subsection 4.2 in the paper.
+
+After running the "TSD_Comparison_Experiments_others.m" file, the variable "s1" contains the raw data for tables corresponding to DY, BB1, ABBmin2 in subsection 4.2 in the paper.
+
+After running the "TSD_Uncontrainted_Problems.jl" file, you will get a csv file "combined_results_20250819.csv" and a log file "error_log_20250819.txt". "combined_results_20250819.csv" contains the raw data for table A.6-A.10 in the paper.
 
 ## Implementation Instruction 
-However, for Problem with index 96 named "LRCOVTYPE", BBQ cannot stop in 4h21m, TSD10 will stop after running for 4h, TSD50 cannnot stop for 4h. So we delete this problem in our practical running, we recommend readers to do so. Specifically, change the line 500-502 in "TSD_20250819.jl" as the following code, it will run the first 95 problems. This process takes about 3.76 hours.
+For "TSD_Comparison_Experiments.m", "TSD_Comparison_Experiments_BBQ.m", "TSD_Comparison_Experiments_others.m", before every run, the right problem set and condition number (variable "keppa" ) must be set. After running, columns in "s1" corresponding to tolerance 1e-6, 1e-9, 1e-12 respectively. 
+
+For "TSD_Uncontrainted_Problems.jl", for Problem with index 96 named "LRCOVTYPE", BBQ cannot stop in 4h21m, TSD10 will stop after running for 4h, TSD50 cannnot stop for 4h. So we delete this problem in our practical running, we recommend readers to do so. Specifically, change the line 500-502 in "TSD_20250819.jl" as the following code, it will run the first 95 problems. This process takes about 3.76 hours.
 ``` julia
 # julia
 for filtered_problems_i in eachindex(filtered_problems[1:95])
@@ -18,7 +26,7 @@ for filtered_problems_i in eachindex(filtered_problems[97:280])
     println(filtered_problems_i)
     postinx=96
 ```
-## Summary of the failed problems
+## Summary of the failed problems in uncostrainted problems numerical experiments
 Here, we give a detailed summary of the failed problems. We use the form "index problem-name“ to refer to a problem in the following. 
 
 29 FLETCBV2, 33 S308NE, 208 MOREBV satisfies the termination condition from the beginning.
