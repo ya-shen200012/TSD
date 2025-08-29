@@ -1,6 +1,6 @@
 clear
 ITER=10;
-kappa = 1e2;
+kappa = 1e4;
 tola=[1e-6 1e-9 1e-12];
 n = 1e4;
 Maxiter = 1e5;
@@ -153,3 +153,4 @@ s1.gnorm(5,j)=s.gnorm(5,ITER+1);
 s1.gnorm(6,j)=s.gnorm(6,ITER+1);
 s1.gnorm(7,j)=s.gnorm(7,ITER+1);
 end
+
